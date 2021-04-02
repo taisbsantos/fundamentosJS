@@ -31,3 +31,19 @@ function Animal () {
 }
 
 new Animal
+
+
+let comparaComThis = function (param) {
+    console.log(this=== param)
+}
+comparaComThis (global)
+
+
+const obj = {}
+comparaComThis = comparaComThis.bind(obj)
+comparaComThis (global) // nesse caso ele para de apontar pro global
+
+
+let comparaComThisArrow = param => console.log(this === param) 
+comparaComThisArrow(global) //aqui não aponta pro global por usar arrow function
+
